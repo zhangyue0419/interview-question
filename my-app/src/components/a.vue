@@ -1,5 +1,5 @@
 <template>
-  <div class="login-main"></div>
+  <div class></div>
 </template>
 
 <script lang="ts">
@@ -16,7 +16,4 @@ export default class Hello extends Vue {
 </script>
 
 <style lang="less" scoped>
-.login-main {
-  background: #000;
-}
 </style>

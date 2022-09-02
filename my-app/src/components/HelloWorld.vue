@@ -1,41 +1,18 @@
 <template>
-  <div>
-    <div>{{ count }}</div>
-    <!-- <div>{{ age }}</div> -->
-    <button @click="increment">+1</button>
-  </div>
+  <div class="1"></div>
 </template>
 
 <script lang="ts">
-import { Options, Vue, watch } from "vue-class-component";
+import { Options, Vue } from "vue-class-component";
+import { Watch, Prop } from "vue-property-decorator";
 
 @Options({
-  watch: {
-    count: (val: number): void => {
-      console.log(val);
-    }
-  }
+  components: {}
 })
 export default class HelloWorld extends Vue {
-  name: string = "Simon Zhang";
-  count: number = 1;
-
-  // computed
-  get MyName(): string {
-    return `My name is ${this.name}`;
-  }
-
-  increment() {
-    this.count = this.count + 1;
-  }
-
-  // methods
-  sayHello(): void {
-    alert(`Hello ${this.name}`);
-  }
-
-  mounted() {
-    this.sayHello();
-  }
+  created() {}
+  mounted() {}
 }
 </script>
+<style lang="sass" scoped>
+</style>

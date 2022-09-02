@@ -2,8 +2,6 @@ const { defineConfig } = require('@vue/cli-service')
 const path = require("path");
 const resolve = dir => path.join(__dirname, dir);
 
-const isDev = process.env.NODE_ENV;
-console.log(22222, 'ddddddddd')
 module.exports = defineConfig({
   transpileDependencies: true,
   publicPath: '/', // 项目部署基本路径，默认根路径
@@ -27,12 +25,28 @@ module.exports = defineConfig({
       css: {}, // 传递给css-loader
     }
   },
-  chainWebpack: config => {
-    config.resolve.alias.set('@', resolve("src"))
-      .set('assets', resolve('src/assets'))
-      .set("components", resolve('src/components'))
-  }
-  ,
+  configureWebpack: {
+    //配置路径相关的时候用resolve 可以解决路径相关的问题
+    resolve: {
+      //别名ps：.vue等相关的其实已经写了，这里只需要写我们自己需要的
+      alias: {
+        //默认有@  他指向的是：src
+        'assets': '@/assets',
+        'common': '@/common',
+        'components': '@/components',
+        'network': '@/network',
+        'views': '@/views',
+        //router 一般情况下不用配置，因为只有在main.js中引用一次，如果有需要也可以在这里配置
+        // 'router': '@/router'
+      }
+    }
+  },
+  // chainWebpack: config => {
+  //   config.resolve.alias.set('@', resolve("/src"))
+  //     .set('assets', resolve('/src/assets'))
+  //     .set("components", resolve('/src/components'))
+  // }
+  // ,
   // 配置代理
   devServer: {
     port: 8080, // 端口号
