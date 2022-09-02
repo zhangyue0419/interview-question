@@ -1,41 +1,41 @@
 <template>
-  <div class="hello">
-    {{name}}
-    <template>
-      <el-button>张悦</el-button>
-    </template>
+  <div>
+    <div>{{ count }}</div>
+    <!-- <div>{{ age }}</div> -->
+    <button @click="increment">+1</button>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from "vue-class-component";
+import { Options, Vue, watch } from "vue-class-component";
 
-@Options({})
+@Options({
+  watch: {
+    count: (val: number): void => {
+      console.log(val);
+    }
+  }
+})
 export default class HelloWorld extends Vue {
-  msg!: string;
-  name: string = "888888";
+  name: string = "Simon Zhang";
+  count: number = 1;
+
+  // computed
+  get MyName(): string {
+    return `My name is ${this.name}`;
+  }
+
+  increment() {
+    this.count = this.count + 1;
+  }
+
+  // methods
+  sayHello(): void {
+    alert(`Hello ${this.name}`);
+  }
 
   mounted() {
-    const isDev = process.env.NODE_ENV;
-    console.log(isDev, "ddddddddd");
+    this.sayHello();
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
