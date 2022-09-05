@@ -22,7 +22,17 @@ module.exports = defineConfig({
       sass: {
         prependData: ''// 预设全局变量
       },
+      // less: {
+      //   additionalData: `@import "./src/styles/var/globalVariable.less";`,
+      //   javascriptEnabled: true
+      // },
       css: {}, // 传递给css-loader
+    },
+  },
+  pluginOptions: { // 第三方插件配置
+    'style-resources-loader': {
+      preProcessor: 'less',
+      patterns: [path.resolve(__dirname, './src/assets/style/global.less')] // less所在文件路径
     }
   },
   configureWebpack: {
