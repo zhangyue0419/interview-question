@@ -1,18 +1,14 @@
 <template>
-  <div>
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld age="sadf" />
+  <div id="app">
+    <router-view></router-view>
   </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import HelloWorld from "./components/HelloWorld.vue";
 
 @Options({
-  components: {
-    HelloWorld
-  }
+  components: {}
 })
 export default class App extends Vue {}
 </script>
@@ -23,7 +19,7 @@ export default class App extends Vue {}
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 100%;
+  height: 100%;
 }
 </style>

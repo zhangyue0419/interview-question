@@ -1,5 +1,5 @@
 <template>
-  <div class="login-main"></div>
+  <div class="login-main">张粤</div>
 </template>
 
 <script lang="ts">
@@ -17,6 +17,8 @@ export default class Hello extends Vue {
 
 <style lang="less" scoped>
 .login-main {
-  background: #000;
+  width: 100%;
+  height: 100%;
+  background: url("../../assets/images/login-bg.jpg");
 }
 </style>
